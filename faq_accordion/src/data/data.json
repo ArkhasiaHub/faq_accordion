@@ -1,0 +1,32 @@
+{
+    "faq": [
+        {
+        "question": "How long does shipping take?",
+        "answer": "Shipping usually takes 5-7 business days for standard delivery. Expedited options are available at checkout."
+        },
+        {
+        "question": "Can I track my order?",
+        "answer": "Yes! Once your order is shipped, you’ll receive a tracking number by email to monitor its progress."
+        },
+        {
+        "question": "What is your return policy?",
+        "answer": "We accept returns within 30 days of delivery. Items must be unused and in original packaging."
+        },
+        {
+        "question": "Do you offer international shipping?",
+        "answer": "Yes, we ship to most countries. Shipping costs and delivery times vary depending on the destination."
+        },
+        {
+        "question": "Can I change or cancel my order?",
+        "answer": "Orders can be modified or canceled within 2 hours of placing them. After that, we may not be able to make changes."
+        },
+        {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept Visa, MasterCard, American Express, PayPal, and Apple Pay for all orders."
+        },
+        {
+        "question": "Is my personal information safe?",
+        "answer": "Absolutely. We use industry-standard encryption and security measures to protect your data."
+        }
+    ]
+}
