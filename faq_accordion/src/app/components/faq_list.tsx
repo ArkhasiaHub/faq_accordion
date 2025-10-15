@@ -1,7 +1,23 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import FaqItem from "./faq_item";
-import faqList from "@/data/data.json"
+
+type FaqItem = {
+    question: string;
+    answer: string;
+}
 
 export default function FaqList() {
+    const [faqList, setFaqList] = useState<FaqItem[]>([]);
+
+    useEffect(() => {
+        fetch("/api/faq")
+        .then((res) => res.json())
+        .then((data) => setFaqList(data))
+        .catch((err) => console.error("Error fetching FAQ: ", err));
+    }, []);
+
     return (
         <fieldset
         role="list"
@@ -9,12 +25,12 @@ export default function FaqList() {
         >
             <ul>
                 {
-                    faqList.faq.map((f, index) => (
+                    faqList.map((f, index) => (
                         <li key={index}>
                             <FaqItem
                             question={f.question}
                             answer={f.answer} 
-                            drawBottomLine={index < faqList.faq.length - 1 ? true : false}
+                            drawBottomLine={index < faqList.length - 1 ? true : false}
                             index={index}/>
                         </li>
                     ))

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FaqButton from "./faq_button";
+import { fetchOneFaq } from "../lib/fetch_one_faq";
 
 type FaqItemProps = {
     question: string;
@@ -23,9 +24,9 @@ export default function FaqItem({question, answer, drawBottomLine, index}: FaqIt
                 <FaqButton
                 index={index}
                 isAnswerShow={answerStatus} 
-                showAnswer={() => (
-                    setAnswerStatus(answerStatus === "hidden" ? "show" : "hidden")
-                )}/>
+                showAnswer={() => {
+                    setAnswerStatus(answerStatus === "hidden" ? "show" : "hidden");
+                }}/>
             </header>
 
             <p className={`transition-all duration-200 text-[var(--purple-600)] text-sm lg:text-base font-normal
