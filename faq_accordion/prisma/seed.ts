@@ -1,5 +1,6 @@
-import { prisma } from "@/app/lib/prisma";
-import { NextResponse } from "next/server";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 const faqList = [
   { question: "How can I track my order?", answer: "You can track your order using the tracking link sent to your email after shipment." },
@@ -11,7 +12,17 @@ const faqList = [
   { question: "How do I change my password?", answer: "Go to your account settings, select 'Change Password', and follow the instructions." },
 ];
 
-export async function GET() {
-    //const faqs = await prisma.fAQ.findMany();
-    return NextResponse.json(faqList);
+async function main() {
+    for (const faq of faqList) {
+        await prisma.fAQ.create({data: faq});
+    }
 }
+
+main()
+    .catch((e) => {
+        console.error(e);
+        process.exit(1);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });

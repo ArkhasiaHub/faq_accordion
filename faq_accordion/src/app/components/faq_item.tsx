@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FaqButton from "./faq_button";
 import { fetchOneFaq } from "../lib/fetch_one_faq";
+import { fecth_one_answer_faq } from "../lib/fetch_one_answer_faq";
 
 type FaqItemProps = {
     question: string;
@@ -13,6 +14,16 @@ type FaqItemProps = {
 
 export default function FaqItem({question, answer, drawBottomLine, index}: FaqItemProps) {
     const [answerStatus, setAnswerStatus] = useState<"hidden" | "show">("hidden");
+    /*const [answer, setAnswer] = useState<string>("");
+
+    useEffect(() => {
+        if (answerStatus === "hidden") return ;
+        const fecthAnswer = async () => {
+            const a = await fecth_one_answer_faq(answer_id);
+            if (a) setAnswer(a.answer);
+        };
+        fecthAnswer();
+    }, [answerStatus]);*/
 
     return (
         <section className={`w-full flex flex-col gap-6 pb-6 pt-6 ${drawBottomLine ? "border-b" : "border-b-0"}`}>

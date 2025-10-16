@@ -12,7 +12,7 @@ export default function FaqList() {
     const [faqList, setFaqList] = useState<FaqItem[]>([]);
 
     useEffect(() => {
-        fetch("/api/faq")
+        fetch("/api/faq/")
         .then((res) => res.json())
         .then((data) => setFaqList(data))
         .catch((err) => console.error("Error fetching FAQ: ", err));
@@ -29,7 +29,7 @@ export default function FaqList() {
                         <li key={index}>
                             <FaqItem
                             question={f.question}
-                            answer={f.answer} 
+                            answer={f.answer}
                             drawBottomLine={index < faqList.length - 1 ? true : false}
                             index={index}/>
                         </li>
